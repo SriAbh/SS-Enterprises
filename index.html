@@ -127,7 +127,7 @@
               </li>
             </ul>
           </li>
-            <li class="main_nav_links" id="button-links">
+            <li class="main_nav_links" id="service-link">
               <a href="#services"><i data-lucide="user-cog"></i>Service</a>
             </li>
             <li class="main_nav_links">
@@ -159,7 +159,7 @@
             </p>
             <div class="main-buttons">
               <button class="main-btn">
-                <a href="#about-us">Read More</a>
+                <a href="/html/feedback.html">Feedback</a>
               </button>
               <button class="main-btn">
                 <a href="html/contacts.html">Contact Us</a>
@@ -1013,6 +1013,7 @@
       const menuToggler = document.querySelectorAll("#menu_toggle");
       const navLink = document.querySelectorAll(".main_nav_links");
       const pageLink = document.getElementById("pageLink");
+      const serLink = document.getElementById("service-link")
 
 
       menuToggler.forEach((toggler) => {
@@ -1027,19 +1028,22 @@
         );
       });
 
-      pageLink.addEventListener("click", () => {
-        header.classList.toggle("showMenu")
-      })
+      pageLink.addEventListener("click", ()=>{
+        console.log("clicked");
+        header.classList.toggle("showMenu");
+        serLink.style.paddingTop = "120px";
+        // togglePageLinkHandler();
+      });
 
       document.addEventListener("click", (e) => {
         if (
           (!header.contains(e.target) && !menuToggler[0].contains(e.target)) ||
-          navLink[0].contains(e.target) ||
-          !pageLink(e.target)
+          navLink[0].contains(e.target)
         ) {
           header.classList.remove("showMenu");
         }
       });
+
     </script>
 
     <!-- Faq ki Script -->
@@ -1152,19 +1156,5 @@
       // });
     </script>
 
-    <script>
-
-      const btnLinks = document.getElementById("button-links");
-      const pLink = document.getElementById("pageLink");
-
-      btnLinks.addEventListener("click", () =>{
-        btnLinks.classList.remove(button-links)
-      });
-
-      pLink.addEventListener("click", () => {
-        pLink.classList.toggle(button-links);
-      });
-
-    </script>
   </body>
 </html>

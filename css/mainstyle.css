@@ -228,8 +228,10 @@ header a {
 }
 
 .main-nav .has-children:hover .dropdown{
-  display: block;
-  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+  gap: 5px;
   /* height: 25vh; */
   /* width: 24%; */
   /* background-color: #000000; */
@@ -250,7 +252,7 @@ header a {
 }
 
 .has-children .dropdown .sub-menu:hover{
-  background-color: #495057;
+  /* background-color: #495057; */
   color: #a3b18a;
   text-decoration: none;
   transition: all 1s;

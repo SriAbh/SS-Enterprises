@@ -1,4 +1,4 @@
-  @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
 
 *{
@@ -10,8 +10,8 @@
 body{
     background: url("../images/feedback/cool-background.png")no-repeat center center/cover;
     font-family: 'Ubuntu', sans-serif;
-    /* height: 100vh; */
-    /* padding: 20px; */
+    height: 100%;
+    padding: 20px;
 }
 
 /* .body-1::before{
@@ -32,20 +32,92 @@ body{
     /* height: 100%; */
     width: 100%;
     display: flex;
-   
+   justify-content: center;
+   align-items: center;
 }
 
 .part1{
-    height: 90vh;
+    height: 84vh;
     width: 35%;
-    background: url("../images/feedback/girl-feedback.png")no-repeat;
-    background-size: 100%;
-    background-position: center;
+    display: flex;
+    flex-direction: column;
+}
 
+.part1 .girl-image{
+  display: flex;
+  justify-content: center;
+  
+}
+
+.part1 .girl-image img{
+  width: 80%;
+}
+
+.login-detail {
+  /* position: relative; */
+  /* top: 50px; */
+  display: flex;
+  float: right;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0rem 5rem;
+  transition: all 0.2s 0.7s;
+  overflow: hidden;
+  /* grid-column: 1 / 2;
+  grid-row: 1 / 2; */
+}
+
+.input-field {
+  max-width: 300px;
+  width: 100%;
+  /* background-color: #f0f0f0; */
+  border: 1px solid #000000;
+  margin: 10px 0;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  /* grid-template-columns: 15% 85%; */
+  padding: 0 1.4rem;
+  position: relative;
+  align-items: center;
+  gap: 5px;
+  background-color: transparent !important;
+}
+
+.input-field i {
+  text-align: center;
+  line-height: 55px;
+  color: #acacac;
+  transition: 0.5s;
+  font-size: 1.1rem;
+}
+
+.input-field .green-check-1, .input-field .green-check-2, .input-field .red-check-1, .input-field .red-check-2{
+  display: none;
+}
+
+.input-field input {
+  background: none;
+  outline: none;
+  border: none;
+  line-height: 1;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+  font-family: 'Ubuntu', sans-serif;
+  background-color: transparent !important;
+}
+
+.input-field input::placeholder {
+  color: #aaa;
+  font-weight: 500;
+  font-family: 'Ubuntu', sans-serif;
+  background-color: transparent !important;
 }
 
 .part2{
-    /* height: 90vh; */
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
     width: 65%;
@@ -86,7 +158,12 @@ h1{
   /* width: 100%; */
   background: transparent;
   cursor: pointer;
+  transition: all 0.3s ease;
   font-family: 'Ubuntu', sans-serif;
+}
+
+.submit-button button:hover{
+  background: #1b1b1bd6;
 }
 
 .submit-form{
@@ -107,7 +184,7 @@ h1{
     width: 400px;
     /* background: #111; */
     padding: 20px 30px;
-    border: 2px solid #444;
+    border: 1px solid #000000;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -201,14 +278,16 @@ h1{
     width: 100%;
     outline: none;
     color: #eee;
-    border: 1px solid #333;
-    background: #222;
+    border: 1px solid #000000;
+    /* background: #222; */
+    background: transparent;
+    border-radius: 10px;
     padding: 10px;
     font-size: 17px;
     resize: none;
   }
   .textarea textarea:focus{
-    border-color: #444;
+    border-color: #000000;
   }
   form .btn{
     height: 45px;
@@ -218,24 +297,27 @@ h1{
   form .btn button{
     height: 100%;
     width: 100%;
-    border: 1px solid #444;
+    border: 1px solid #000000;
     outline: none;
-    background: #222;
+    /* background: #222; */
+    background: transparent;
     color: #999;
+    border-radius: 10px;
     font-size: 17px;
     font-weight: 500;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s ease;
+    font-family: 'Ubuntu', sans-serif;
   }
   form .btn button:hover{
-    background: #1b1b1b;
+    background: #1b1b1b36;
   }
 
   .body-2{
     background: url("/cool-background6.png")no-repeat center center/cover;
     display: none;
-    height: 100vh;
+    height: 94vh;
     align-items: center;
     justify-content: center;
   }
