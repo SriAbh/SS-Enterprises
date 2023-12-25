@@ -113,16 +113,16 @@
               ></i
             ></a>
             <ul class="dropdown">
-              <li class="sub-menu">
+              <li class="sub-menu" id="ourTeamLink">
                 <a href="html/ourTeam2.html" class="links">Our Team</a>
               </li>
-              <li class="sub-menu">
+              <li class="sub-menu" id="galleryLink">
                 <a href="html/gallery.html" class="links">Gallery</a>
               </li>
-              <li class="sub-menu">
+              <li class="sub-menu" id="faqLink">
                 <a href="#faq" class="links">FAQ</a>
               </li>
-              <li class="sub-menu">
+              <li class="sub-menu" id="blogLink">
                 <a href="html/blog.html" class="links">Blog</a>
               </li>
             </ul>
@@ -1013,39 +1013,79 @@
       const menuToggler = document.querySelectorAll("#menu_toggle");
       const navLink = document.querySelectorAll(".main_nav_links");
       const pageLink = document.getElementById("pageLink");
-      const serLink = document.getElementById("service-link")
-
-
+      const serLink = document.getElementById("service-link");
+      const mainMenu = document.querySelectorAll(".main_menu_items");
+      const subMenu = document.querySelectorAll(".sub-menu")
+    
       menuToggler.forEach((toggler) => {
         toggler.addEventListener("click", () =>
           header.classList.toggle("showMenu")
         );
       });
-
+    
       navLink.forEach((toggler) => {
         toggler.addEventListener("click", () =>
           header.classList.remove("showMenu")
         );
       });
+    
+      mainMenu.forEach((menuItem) => {
+  menuItem.addEventListener("click", (event) => {
+    const isNavLinkClicked = Array.from(navLink).some((link) =>
+      link.contains(event.target)
+    );
 
-      pageLink.addEventListener("click", ()=>{
-        console.log("clicked");
+    const isSubMenuClicked = Array.from(subMenu).some((submenu) =>
+      submenu.contains(event.target)
+    );
+
+    if (isSubMenuClicked || isNavLinkClicked) {
+      header.classList.remove("showMenu");
+    }
+  });
+});
+
+subMenu.forEach((submenu) => {
+  submenu.addEventListener("click", (event) => {
+    event.stopPropagation(); // Stop propagation to prevent the event from reaching mainMenu
+    header.classList.remove("showMenu");
+    serLink.style.paddingTop = "0px";
+    serLink.style.transition = "all 0.5s";
+  });
+});
+
+      const handlePageLinkClick = (e) => {
         header.classList.toggle("showMenu");
         serLink.style.paddingTop = "120px";
-        // togglePageLinkHandler();
-      });
-
+        serLink.style.transition = "all 0.5s";
+        e.stopPropagation();
+      };
+    
+      const mediaQuery = window.matchMedia("(max-width: 860px)");
+    
+      const togglePageLinkListener = () => {
+        if (mediaQuery.matches) {
+          pageLink.addEventListener("click", handlePageLinkClick);
+        } else {
+          pageLink.removeEventListener("click", handlePageLinkClick);
+        }
+      };
+    
+      togglePageLinkListener(); // Initial check
+    
+      mediaQuery.addEventListener("change", togglePageLinkListener); // Listen for changes in media query
+    
       document.addEventListener("click", (e) => {
         if (
           (!header.contains(e.target) && !menuToggler[0].contains(e.target)) ||
-          navLink[0].contains(e.target)
+          mainMenu[0].contains(e.target)
         ) {
           header.classList.remove("showMenu");
+          serLink.style.paddingTop = "0px";
         }
       });
-
     </script>
-
+    
     <!-- Faq ki Script -->
 
     <script>

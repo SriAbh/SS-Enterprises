@@ -74,7 +74,7 @@ footer{
 }
 .footer-bottom{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     margin-top: 100px;
 }
@@ -128,7 +128,7 @@ footer{
     }
     .footer-bottom{
         flex-wrap: wrap;
-        justify-content:space-between;
+        /* justify-content:space-between; */
         align-items: center;
         padding: 0px 20px;
     }
